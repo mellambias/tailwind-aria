@@ -36,8 +36,8 @@ You can write
 
 Add this plugin to your project:
 
+#### Install using npm
 ```bash
-# Install using npm
 npm install --save-dev tailwind-aria
 ```
 
