@@ -2,6 +2,10 @@
 
 This plugin adds Pseudo-elements `aria` with Tailwind CSS.
 
+#### New on this version
+
+Upgrade to **group** and **peer** variants.
+
 #### What is ARIA?
 
 **A**ccessible **R**ich **I**nternet **A**pplications (ARIA) is a set of [roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) and [attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) that define ways to make web content and web applications (especially those developed with JavaScript) more accessible to people with disabilities.
@@ -37,6 +41,7 @@ You can write
 Add this plugin to your project:
 
 #### Install using npm
+
 ```bash
 npm install --save-dev tailwind-aria
 ```
@@ -163,6 +168,38 @@ The class **.aria-{attribute}-{value}** are pseudo-class **[aria-{attibute}="{va
 ```html
 <div class="aria-current-page">[aria-current="page"]</div>
 <div class="aria-current-location">[aria-current="location"]</div>
+```
+
+### Styling based on parent
+
+When you need to style an element based on the state of some parent element, mark the parent with the **`group-aria`** class, and use **group-aria-{atribute}** or **group-aria-{atribute}-{value}** modifiers like **group-aria-current-page** to style the target element:
+
+```html
+<ul>
+  <li class="group-aria" aria-current="page">
+    <div>
+      <img src="" alt="" />
+    </div>
+    <h1>titulo 2</h1>
+    <h2 class="group-aria-current-page:text-5xl">texto 5xl</h2>
+  </li>
+</ul>
+```
+
+### Styling based on sibling state
+
+When you need to style an element based on the state of a sibling element, mark the sibling with the **`peer-aria`** class, and use **peer-aria-{atribute}** or **peer-aria-{atribute}-{value}** modifiers like **peer-aria-current-page** to style the target element:
+
+```html
+<ul>
+  <li>
+    <div>
+      <img src="" alt="" />
+    </div>
+    <h1 class="peer-aria" aria-current="page">titulo 2</h1>
+    <h2 class="peer-aria-current-page:text-5xl">texto 5xl</h2>
+  </li>
+</ul>
 ```
 
 ### Customizing your variants

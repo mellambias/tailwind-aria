@@ -65,8 +65,17 @@ module.exports = plugin(function ({ addVariant, e, theme }) {
               )}`
           )
         );
+
+        // group variants
+        addVariant(
+          `group-${selector}`,
+          `:merge(.group-aria)[aria-${key}="${element}"] &`
+        );
+        // peer variants
+        addVariant(
+          `peer-${selector}`,
+          `:merge(.peer-aria)[aria-${key}="${element}"] ~ &`
+        );
       });
   }
 });
-//https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes
-//https://www.aditus.io/aria/aria-current/
